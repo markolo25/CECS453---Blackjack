@@ -2,7 +2,7 @@
 #### By Mark Mendoza and Kelvin Nguyen
 
 
-# Project Projected Milestones
+# Project Schedule
 |Date|Description|
 | --- | --- |
 | 11/16/2016 | DONE Create Framework for what will be in the main menu |
