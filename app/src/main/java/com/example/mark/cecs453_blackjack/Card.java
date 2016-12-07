@@ -9,38 +9,43 @@ public class Card {
     private int value;
     private String suit;
     private String image;
-    public Card(String n, int v, String s,String i){
+
+    public Card(String n, int v, String s, String i) {
         name = n;
         value = v;
         suit = s;
         image = i;
     }
 
-    public void setName(String n){
+    public void setName(String n) {
         name = n;
     }
 
-    public void setValue(int v){
+    public void setValue(int v) {
         value = v;
     }
-    public void setSuit(String s){
+
+    public void setSuit(String s) {
         suit = s;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public int getValue(){
+    public int getValue() {
         return value;
     }
-    public String getSuit(){
+
+    public String getSuit() {
         return suit;
     }
-    public void setImage(String i){
+
+    public void setImage(String i) {
         image = i;
     }
-    public String getImage(){
+
+    public String getImage() {
         return image;
     }
 }
