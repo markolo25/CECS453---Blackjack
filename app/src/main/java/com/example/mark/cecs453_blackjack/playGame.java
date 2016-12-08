@@ -46,24 +46,27 @@ public class playGame extends AppCompatActivity {
     }
 
     private void makeViews() {
-        pos_1 = (ImageView) findViewById(R.id.imageView4);
-        pos_2;
-        pos_3;
-        pos_4;
-        pos_5;
-        pos_6;
-        pos_7;
-        pos_8;
-        pos_9;
-        pos_10;
-        pos_11;
-        pos_12;
-        pos_13;
-        pos_14;
-        pos_15;
-        pos_16;
+        pos_1  = (ImageView) findViewById(R.id.imageView4);
+        pos_2  = (ImageView) findViewById(R.id.imageView4);
+        pos_3  = (ImageView) findViewById(R.id.imageView4);
+        pos_4  = (ImageView) findViewById(R.id.imageView4);
+        pos_5  = (ImageView) findViewById(R.id.imageView4);
+        pos_6  = (ImageView) findViewById(R.id.imageView4);
+        pos_7  = (ImageView) findViewById(R.id.imageView4);
+        pos_8  = (ImageView) findViewById(R.id.imageView4);
+        pos_9  = (ImageView) findViewById(R.id.imageView4);
+        pos_10 = (ImageView) findViewById(R.id.imageView4);
+        pos_11 = (ImageView) findViewById(R.id.imageView4);
+        pos_12 = (ImageView) findViewById(R.id.imageView4);
+        pos_13 = (ImageView) findViewById(R.id.imageView4);
+        pos_14 = (ImageView) findViewById(R.id.imageView4);
+        pos_15 = (ImageView) findViewById(R.id.imageView4);
+        pos_16 = (ImageView) findViewById(R.id.imageView4);
     }
-    public void setCardImage(Card card){
+    public void setCardImage(Card card, int pos){ //Basically put card in imageview pos.
+        switch(pos){
+
+        };
 
     }
 
