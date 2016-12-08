@@ -104,10 +104,11 @@ public class playGame extends AppCompatActivity {
         pos_16 = (ImageView) findViewById(R.id.imageView4);
     }
     public void setCardImage(Card card, int pos) { //Basically put card in imageview pos.
-        switch (pos) {
+        //img.setImageResource(R.drawable.my_image);
+    }
 
-        }
-        ;
+    public void renderHand(){
+
     }
 
     public void makeDeck() {
