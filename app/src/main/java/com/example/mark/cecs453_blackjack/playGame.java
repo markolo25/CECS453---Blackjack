@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.view.View;
+
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -39,7 +41,30 @@ public class playGame extends AppCompatActivity {
         Button hit = (Button) findViewById(R.id.hit_button);
         Button stay = (Button) findViewById(R.id.hit_button);
         makeDeck();
+        makeViews();
         deal();
+    }
+
+    private void makeViews() {
+        pos_1 = (ImageView) findViewById(R.id.imageView4);
+        pos_2;
+        pos_3;
+        pos_4;
+        pos_5;
+        pos_6;
+        pos_7;
+        pos_8;
+        pos_9;
+        pos_10;
+        pos_11;
+        pos_12;
+        pos_13;
+        pos_14;
+        pos_15;
+        pos_16;
+    }
+    public void setCardImage(Card card){
+
     }
 
     public void makeDeck() {
