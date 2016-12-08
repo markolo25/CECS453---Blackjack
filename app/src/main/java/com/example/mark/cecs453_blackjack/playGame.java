@@ -32,17 +32,57 @@ public class playGame extends AppCompatActivity {
     ArrayList<Card> opponentsHand = new ArrayList<Card>();
     ArrayList<Card> playerHand = new ArrayList<Card>();
     int playerValue;
+    int opponentValue;
     int numberOfCards = 51;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_game);
-        Button hit = (Button) findViewById(R.id.hit_button);
-        Button stay = (Button) findViewById(R.id.hit_button);
+        playerValue = 0;
+        opponentValue = 0;
+        final Button hit = (Button) findViewById(R.id.hit_button);
+        final Button stay = (Button) findViewById(R.id.hit_button);
         makeDeck();
         makeViews();
         deal();
+        hit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // create class object
+                Random randomNumber = new Random();
+                int randomCard = randomNumber.nextInt(numberOfCards);
+                boolean breakLoop = false;
+                playerHand.add(playingDeck.get(randomCard));
+                playerValue += playingDeck.get(randomCard).getValue();
+                playingDeck.remove(playingDeck.get(randomCard));
+                numberOfCards--;
+                while(playerValue > 21 || !breakLoop) {
+                    for(int i = 0; i < playerHand.size(); i++){
+                        if(playerHand.get(i).getName().equals("ace") && playerHand.get(i).getValue() == 11){
+                            playerHand.get(i).setValue(1);
+                            playerValue -= 10;
+                            break;
+                        }
+                        else{
+                            breakLoop = true;
+                        }
+                    }
+                    hit.setVisibility(Button.INVISIBLE);
+                    stay.setVisibility(Button.INVISIBLE);
+                    opponentsTurn();
+                    break;
+                }
+            }
+        });
+        stay.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // create class object
+                hit.setVisibility(Button.INVISIBLE);
+                stay.setVisibility(Button.INVISIBLE);
+                opponentsTurn();
+            }
+        });
     }
 
     private void makeViews() {
@@ -63,11 +103,11 @@ public class playGame extends AppCompatActivity {
         pos_15 = (ImageView) findViewById(R.id.imageView4);
         pos_16 = (ImageView) findViewById(R.id.imageView4);
     }
-    public void setCardImage(Card card, int pos){ //Basically put card in imageview pos.
-        switch(pos){
+    public void setCardImage(Card card, int pos) { //Basically put card in imageview pos.
+        switch (pos) {
 
-        };
-
+        }
+        ;
     }
 
     public void makeDeck() {
@@ -140,13 +180,54 @@ public class playGame extends AppCompatActivity {
             playerHand.add(playingDeck.get(randomCard));
             playingDeck.remove(playingDeck.get(randomCard));
             numberOfCards--;
+            playerValue += playerHand.get(i).getValue();
         }
         for (int i = 1; i < 2; i++) {
             randomCard = randomNumber.nextInt(numberOfCards);
             opponentsHand.add(playingDeck.get(randomCard));
             playingDeck.remove(playingDeck.get(randomCard));
             numberOfCards--;
+            playerValue += opponentsHand.get(i).getValue();
         }
     }
+    public void reshuffle(){
+        playingDeck.clear();
+        makeDeck();
+    }
+    public void opponentsTurn(){
+        Random randomNumber = new Random();
+        int randomCard;
+        randomCard = randomNumber.nextInt(numberOfCards);
+        boolean breakLoop = false;
+        for(int i = 0; i< opponentsHand.size(); i++){
+            if(opponentValue < 15){
+                playerHand.add(playingDeck.get(randomCard));
+                playerValue += playingDeck.get(randomCard).getValue();
+                playingDeck.remove(playingDeck.get(randomCard));
+                numberOfCards--;
+            }
+            while(opponentValue > 21 || !breakLoop){
+                for(int j = 0; j < opponentsHand.size(); j++){
+                    if(opponentsHand.get(j).getName().equals("ace") && opponentsHand.get(j).getValue() == 11){
+                        opponentsHand.get(j).setValue(1);
+                        opponentValue -= 10;
+                        break;
+                    }
+                    else{
+                        breakLoop = true;
+                    }
+                }
 
+            }
+        }
+        compareHands();
+    }
+    public void compareHands(){
+        if(playerValue > opponentValue){
+            //win
+        }
+        else if( playerValue < opponentValue){
+            //loss
+        }
+    }
 }
