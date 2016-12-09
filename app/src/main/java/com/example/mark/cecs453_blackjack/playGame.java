@@ -1,4 +1,6 @@
 package com.example.mark.cecs453_blackjack;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -7,6 +9,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.view.View;
+import android.widget.Toast;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -30,6 +34,9 @@ public class playGame extends AppCompatActivity {
     ImageView pos_14;
     ImageView pos_15;
     ImageView pos_16;
+    AlertDialog levelDialog;
+    final CharSequence[] items = {" Next Round ", "Reshuffle"};
+    AlertDialog.Builder builder;
     HashMap<Integer, ImageView> positions = new HashMap();
     ArrayList<Card> playingDeck = new ArrayList<Card>();
     ArrayList<Card> opponentsHand = new ArrayList<Card>();
@@ -40,6 +47,7 @@ public class playGame extends AppCompatActivity {
     Button hit;
     Button stay;
     int numberOfRounds;
+    int currentRound = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +59,7 @@ public class playGame extends AppCompatActivity {
         Intent myIntent = getIntent();
         Bundle myBundle = myIntent.getExtras();
         numberOfRounds = myBundle.getInt("Number of Rounds");
+
         makeDeck();
         makeViews();
         InputStream inputStream = null;
@@ -59,28 +68,25 @@ public class playGame extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // create class object
-                Random randomNumber = new Random();
-                int randomCard = randomNumber.nextInt(numberOfCards);
-                boolean breakLoop = false;
-                playerHand.add(playingDeck.get(randomCard));
-                playerValue += playingDeck.get(randomCard).getValue();
-                playingDeck.remove(playingDeck.get(randomCard));
-                numberOfCards--;
-                while(playerValue > 21 || !breakLoop) {
-                    for(int i = 0; i < playerHand.size(); i++){
-                        if(playerHand.get(i).getName().equals("ace") && playerHand.get(i).getValue() == 11){
-                            playerHand.get(i).setValue(1);
-                            playerValue -= 10;
-                            break;
-                        }
-                        else{
-                            breakLoop = true;
+                if(playerHand.size() < 8) {
+                    Random randomNumber = new Random();
+                    int randomCard = randomNumber.nextInt(numberOfCards);
+                    playerHand.add(playingDeck.get(randomCard));
+                    playerValue += playingDeck.get(randomCard).getValue();
+                    playingDeck.remove(playingDeck.get(randomCard));
+                    setCardImage(playerHand.get(playerHand.size()-1), playerHand.size()-1);
+                    if (playerValue > 21) {
+                        for (int i = 0; i < playerHand.size(); i++) {
+                            if (playerHand.get(i).getName().equals("ace") && playerHand.get(i).getValue() == 11) {
+                                playerValue -= 10;
+                                playerHand.get(i).setValue(1);
+                                break;
+                            }
                         }
                     }
+                }
+                else{
                     hit.setVisibility(Button.INVISIBLE);
-                    stay.setVisibility(Button.INVISIBLE);
-                    opponentsTurn();
-                    break;
                 }
             }
         });
@@ -225,9 +231,7 @@ public class playGame extends AppCompatActivity {
     public void opponentsTurn(){
         Random randomNumber = new Random();
         int randomCard;
-        for(int i = 0; i < playerHand.size();i++){
-            setCardImage(playerHand.get(i),i);
-        }
+
         randomCard = randomNumber.nextInt(numberOfCards);
         boolean breakLoop = false;
         for(int i = 0; i< opponentsHand.size(); i++){
@@ -253,20 +257,49 @@ public class playGame extends AppCompatActivity {
         }
         compareHands();
     }
-    public void compareHands(){
-        for(int i = 0; i < opponentsHand.size();i++){
-            setCardImage(opponentsHand.get(i),i+8);
+    public void compareHands() {
+        for (int i = 0; i < opponentsHand.size(); i++) {
+            setCardImage(opponentsHand.get(i), i + 8);
         }
 
-        if(playerValue > opponentValue){
-            //win
+        if (playerValue > opponentValue) {
             hit.setVisibility(Button.VISIBLE);
             stay.setVisibility(Button.VISIBLE);
-        }
-        else if( playerValue < opponentValue){
+        } else if (playerValue < opponentValue) {
             //loss
             hit.setVisibility(Button.VISIBLE);
             stay.setVisibility(Button.VISIBLE);
+        }
+        currentRound++;
+        if (currentRound < 3) {
+            builder = new AlertDialog.Builder(this);
+            builder.setTitle("Round over");
+
+            builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int option) {
+                    switch (option) {
+                        case 0:
+                            playerHand.clear();
+                            opponentsHand.clear();
+                            playerValue = 0;
+                            opponentValue = 0;
+                            // Your code when first option seletced
+                            break;
+                        case 1:
+                            reshuffle();
+                            break;
+
+                    }
+                    levelDialog.dismiss();
+                }
+            });
+            levelDialog = builder.create();
+            levelDialog.show();
+
+        }
+        else{
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
         }
     }
 }
