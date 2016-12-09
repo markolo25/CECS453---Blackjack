@@ -113,6 +113,7 @@ public class playGame extends AppCompatActivity {
     }
 
     public void makeDeck() {
+         //new Card ("ace", 11, "spades", R.drawable.ace_of_spades); kelvin this is the new format now
         playingDeck.add(new Card("ace", 11, "spades", "ace_of_spades.png"));
         playingDeck.add(new Card("ace", 11, "clubs", "ace_of_clubs.png"));
         playingDeck.add(new Card("ace", 11, "diamonds", "ace_of_diamonds.png"));
