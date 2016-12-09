@@ -1,5 +1,6 @@
 package com.example.mark.cecs453_blackjack;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +53,7 @@ public class playGame extends AppCompatActivity {
         numberOfRounds = myBundle.getInt("Number of Rounds");
         makeDeck();
         makeViews();
+        InputStream inputStream = null;
         deal();
         hit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,79 +129,75 @@ public class playGame extends AppCompatActivity {
         positions.put(15,pos_16);
 
     }
-    public void setCardImage(Card card, int pos) { //Basically put card in imageview pos.
-        try {
-            InputStream inputStream = getAssets().open(card.getImage());
-            Drawable drawable = Drawable.createFromStream(inputStream, null);
-            positions.get(pos).setImageDrawable(drawable);
-        } catch (IOException e) { e.printStackTrace();}
+    public void setCardImage(Card card,int pos) { //Basically put card in imageview pos.
+        int resID = getResources().getIdentifier(card.getImage(), "drawable",  getPackageName());
+        positions.get(pos).setImageResource(resID);
     }
     public void makeDeck() {
          //new Card ("ace", 11, "spades", R.drawable.ace_of_spades); kelvin this is the new format now
-        playingDeck.add(new Card("ace", 11, "spades", "ace_of_spades.png"));
-        playingDeck.add(new Card("ace", 11, "clubs", "ace_of_clubs.png"));
-        playingDeck.add(new Card("ace", 11, "diamonds", "ace_of_diamonds.png"));
-        playingDeck.add(new Card("ace", 11, "hearts", "ace_of_hearts.png"));
+        playingDeck.add(new Card("ace", 11, "spades", "ace_of_spades"));
+        playingDeck.add(new Card("ace", 11, "clubs", "ace_of_clubs"));
+        playingDeck.add(new Card("ace", 11, "diamonds", "ace_of_diamonds"));
+        playingDeck.add(new Card("ace", 11, "hearts", "ace_of_hearts"));
 
-        playingDeck.add(new Card("two", 2, "spades", "2_of_spades.png"));
-        playingDeck.add(new Card("two", 2, "clubs", "2_of_clubs.png"));
-        playingDeck.add(new Card("two", 2, "diamonds", "2_of_diamonds.png"));
-        playingDeck.add(new Card("two", 2, "hearts", "2_of_hearts.png"));
+        playingDeck.add(new Card("two", 2, "spades", "2_of_spades"));
+        playingDeck.add(new Card("two", 2, "clubs", "2_of_clubs"));
+        playingDeck.add(new Card("two", 2, "diamonds", "2_of_diamonds"));
+        playingDeck.add(new Card("two", 2, "hearts", "2_of_hearts"));
 
-        playingDeck.add(new Card("three", 3, "spades", "3_of_spades.png"));
-        playingDeck.add(new Card("three", 3, "clubs", "3_of_clubs.png"));
-        playingDeck.add(new Card("three", 3, "diamonds", "3_of_diamonds.png"));
-        playingDeck.add(new Card("three", 3, "hearts", "3_of_hearts.png"));
+        playingDeck.add(new Card("three", 3, "spades", "3_of_spades"));
+        playingDeck.add(new Card("three", 3, "clubs", "3_of_clubs"));
+        playingDeck.add(new Card("three", 3, "diamonds", "3_of_diamonds"));
+        playingDeck.add(new Card("three", 3, "hearts", "3_of_hearts"));
 
-        playingDeck.add(new Card("four", 4, "spades", "4_of_spades.png"));
-        playingDeck.add(new Card("four", 4, "clubs", "4_of_clubs.png"));
-        playingDeck.add(new Card("four", 4, "diamonds", "4_of_diamonds.png"));
-        playingDeck.add(new Card("four", 4, "hearts", "4_of_hearts.png"));
+        playingDeck.add(new Card("four", 4, "spades", "4_of_spades"));
+        playingDeck.add(new Card("four", 4, "clubs", "4_of_clubs"));
+        playingDeck.add(new Card("four", 4, "diamonds", "4_of_diamonds"));
+        playingDeck.add(new Card("four", 4, "hearts", "4_of_hearts"));
 
-        playingDeck.add(new Card("five", 5, "spades", "5_of_spades.png"));
-        playingDeck.add(new Card("five", 5, "clubs", "5_of_clubs.png"));
-        playingDeck.add(new Card("five", 5, "diamonds", "5_of_diamonds.png"));
-        playingDeck.add(new Card("five", 5, "hearts", "5_of_hearts.png"));
+        playingDeck.add(new Card("five", 5, "spades", "5_of_spades"));
+        playingDeck.add(new Card("five", 5, "clubs", "5_of_clubs"));
+        playingDeck.add(new Card("five", 5, "diamonds", "5_of_diamonds"));
+        playingDeck.add(new Card("five", 5, "hearts", "5_of_hearts"));
 
-        playingDeck.add(new Card("six", 6, "spades", "6_of_spades.png"));
-        playingDeck.add(new Card("six", 6, "clubs", "6_of_clubs.png"));
-        playingDeck.add(new Card("six", 6, "diamonds", "6_of_diamonds.png"));
-        playingDeck.add(new Card("six", 6, "hearts", "6_of_hearts.png"));
+        playingDeck.add(new Card("six", 6, "spades", "6_of_spades"));
+        playingDeck.add(new Card("six", 6, "clubs", "6_of_clubs"));
+        playingDeck.add(new Card("six", 6, "diamonds", "6_of_diamonds"));
+        playingDeck.add(new Card("six", 6, "hearts", "6_of_hearts"));
 
-        playingDeck.add(new Card("seven", 7, "spades", "7_of_spades.png"));
-        playingDeck.add(new Card("seven", 7, "clubs", "7_of_spades.png"));
-        playingDeck.add(new Card("seven", 7, "diamonds", "7_of_spades.png"));
-        playingDeck.add(new Card("seven", 7, "hearts", "7_of_spades.png"));
+        playingDeck.add(new Card("seven", 7, "spades", "7_of_spades"));
+        playingDeck.add(new Card("seven", 7, "clubs", "7_of_spades"));
+        playingDeck.add(new Card("seven", 7, "diamonds", "7_of_spades"));
+        playingDeck.add(new Card("seven", 7, "hearts", "7_of_spades"));
 
-        playingDeck.add(new Card("eight", 8, "spades", "8_of_spades.png"));
-        playingDeck.add(new Card("eight", 8, "clubs", "8_of_clubs.png"));
-        playingDeck.add(new Card("eight", 8, "diamonds", "8_of_diamonds.png"));
-        playingDeck.add(new Card("eight", 8, "hearts", "8_of_hearts.png"));
+        playingDeck.add(new Card("eight", 8, "spades", "8_of_spades"));
+        playingDeck.add(new Card("eight", 8, "clubs", "8_of_clubs"));
+        playingDeck.add(new Card("eight", 8, "diamonds", "8_of_diamonds"));
+        playingDeck.add(new Card("eight", 8, "hearts", "8_of_hearts"));
 
-        playingDeck.add(new Card("nine", 9, "spades", "9_of_spades.png"));
-        playingDeck.add(new Card("nine", 9, "clubs", "9_of_clubs.png"));
-        playingDeck.add(new Card("nine", 9, "diamonds", "9_of_diamonds.png"));
-        playingDeck.add(new Card("nine", 9, "hearts", "9_of_hearts.png"));
+        playingDeck.add(new Card("nine", 9, "spades", "9_of_spades"));
+        playingDeck.add(new Card("nine", 9, "clubs", "9_of_clubs"));
+        playingDeck.add(new Card("nine", 9, "diamonds", "9_of_diamonds"));
+        playingDeck.add(new Card("nine", 9, "hearts", "9_of_hearts"));
 
-        playingDeck.add(new Card("jack", 10, "spades", "jack_of_spades.png"));
-        playingDeck.add(new Card("jack", 10, "clubs", "jack_of_clubs.png"));
-        playingDeck.add(new Card("jack", 10, "diamonds", "jack_of_diamonds.png"));
-        playingDeck.add(new Card("jack", 10, "hearts", "jack_of_hearts.png"));
+        playingDeck.add(new Card("jack", 10, "spades", "jack_of_spades"));
+        playingDeck.add(new Card("jack", 10, "clubs", "jack_of_clubs"));
+        playingDeck.add(new Card("jack", 10, "diamonds", "jack_of_diamonds"));
+        playingDeck.add(new Card("jack", 10, "hearts", "jack_of_hearts"));
 
-        playingDeck.add(new Card("queen", 10, "spades", "queen_of_spades.png"));
-        playingDeck.add(new Card("queen", 10, "clubs", "queen_of_clubs.png"));
-        playingDeck.add(new Card("queen", 10, "diamonds", "queen_of_diamonds.png"));
-        playingDeck.add(new Card("queen", 10, "hearts", "queen_of_hearts.png"));
+        playingDeck.add(new Card("queen", 10, "spades", "queen_of_spades"));
+        playingDeck.add(new Card("queen", 10, "clubs", "queen_of_clubs"));
+        playingDeck.add(new Card("queen", 10, "diamonds", "queen_of_diamonds"));
+        playingDeck.add(new Card("queen", 10, "hearts", "queen_of_hearts"));
 
-        playingDeck.add(new Card("king", 10, "spades", "king_of_spades.png"));
-        playingDeck.add(new Card("king", 10, "clubs", "king_of_clubs.png"));
-        playingDeck.add(new Card("king", 10, "diamonds", "king_of_diamonds.png"));
-        playingDeck.add(new Card("king", 10, "hearts", "ace_of_hearts.png"));
+        playingDeck.add(new Card("king", 10, "spades", "king_of_spades"));
+        playingDeck.add(new Card("king", 10, "clubs", "king_of_clubs"));
+        playingDeck.add(new Card("king", 10, "diamonds", "king_of_diamonds"));
+        playingDeck.add(new Card("king", 10, "hearts", "ace_of_hearts"));
         numberOfCards = playingDeck.size();
     }
 
     public void deal() {
-
         Random randomNumber = new Random();
         int randomCard;
         for (int i = 0; i < 2; i++) {
