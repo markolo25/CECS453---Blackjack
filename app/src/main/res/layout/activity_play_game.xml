@@ -44,139 +44,137 @@
         android:layout_width="75dp"
         android:layout_height="108.8dp"
 
-        android:layout_below="@+id/imageView2"
-        android:layout_toStartOf="@+id/button3"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imageView8"/>
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignEnd="@+id/button3"
-        android:layout_below="@+id/imageView3"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/button3"/>
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/imageView0"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"/>
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_above="@+id/button3"
-        android:layout_marginBottom="67dp"
-        android:layout_toEndOf="@+id/imageView0"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_below="@+id/imageView0"
+        android:layout_alignParentStart="true"/>
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignStart="@+id/hit_button"
-        android:layout_alignTop="@+id/imageView4"
-        android:layout_marginStart="12dp"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_below="@+id/imageView1"
+        android:layout_toEndOf="@+id/imageView0"/>
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignTop="@+id/imageView5"
-        android:layout_centerHorizontal="true"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_below="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView9"/>
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignTop="@+id/imageView6"
-        android:layout_toEndOf="@+id/button3"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignParentEnd="true"/>
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/imageView4"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="11dp"/>
 
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/imageView1"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_alignTop="@+id/imageView8"
+        android:layout_toEndOf="@+id/imageView12"/>
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignTop="@+id/imageView11"
-        android:layout_marginEnd="18dp"
-        android:layout_toStartOf="@+id/imageView2"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_below="@+id/imageView13"
+        android:layout_toEndOf="@+id/imageView9"/>
 
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_above="@+id/imageView9"
-        android:layout_marginEnd="14dp"
-        android:layout_toStartOf="@+id/imageView3"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_marginEnd="24dp"
+        android:layout_below="@+id/imageView14"
+        android:layout_alignParentEnd="true"/>
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/hit_button"
-        android:layout_marginTop="61dp"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_below="@+id/hit_button"
+        android:layout_alignParentStart="true"/>
 
     <ImageView
         android:id="@+id/imageView13"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignTop="@+id/imageView12"
-        android:layout_toStartOf="@+id/imageView9"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_below="@+id/hit_button"
+        android:layout_toEndOf="@+id/imageView12"/>
 
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignEnd="@+id/imageView7"
-        android:layout_below="@+id/imageView13"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_above="@+id/imageView9"
+        android:layout_toEndOf="@+id/imageView9"/>
 
     <ImageView
         android:id="@+id/imageView15"
         android:layout_width="75dp"
         android:layout_height="108.8dp"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/imageView14"
         android:scaleType="fitXY"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:layout_alignTop="@+id/imageView14"
+        android:layout_alignStart="@+id/imageView11"/>
+
 </RelativeLayout>
