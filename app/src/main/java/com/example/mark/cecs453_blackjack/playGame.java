@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.view.View;
-import android.graphics.drawable.Drawable;
 
 
 import java.util.ArrayList;
@@ -87,22 +86,22 @@ public class playGame extends AppCompatActivity {
     }
 
     private void makeViews() {
-        pos_1  = (ImageView) findViewById(R.id.imageView4);
-        pos_2  = (ImageView) findViewById(R.id.imageView4);
-        pos_3  = (ImageView) findViewById(R.id.imageView4);
-        pos_4  = (ImageView) findViewById(R.id.imageView4);
-        pos_5  = (ImageView) findViewById(R.id.imageView4);
-        pos_6  = (ImageView) findViewById(R.id.imageView4);
-        pos_7  = (ImageView) findViewById(R.id.imageView4);
-        pos_8  = (ImageView) findViewById(R.id.imageView4);
-        pos_9  = (ImageView) findViewById(R.id.imageView4);
-        pos_10 = (ImageView) findViewById(R.id.imageView4);
-        pos_11 = (ImageView) findViewById(R.id.imageView4);
-        pos_12 = (ImageView) findViewById(R.id.imageView4);
-        pos_13 = (ImageView) findViewById(R.id.imageView4);
-        pos_14 = (ImageView) findViewById(R.id.imageView4);
-        pos_15 = (ImageView) findViewById(R.id.imageView4);
-        pos_16 = (ImageView) findViewById(R.id.imageView4);
+        pos_1  = (ImageView) findViewById(R.id.imageView0);
+        pos_2  = (ImageView) findViewById(R.id.imageView0);
+        pos_3  = (ImageView) findViewById(R.id.imageView0);
+        pos_4  = (ImageView) findViewById(R.id.imageView0);
+        pos_5  = (ImageView) findViewById(R.id.imageView0);
+        pos_6  = (ImageView) findViewById(R.id.imageView0);
+        pos_7  = (ImageView) findViewById(R.id.imageView0);
+        pos_8  = (ImageView) findViewById(R.id.imageView0);
+        pos_9  = (ImageView) findViewById(R.id.imageView0);
+        pos_10 = (ImageView) findViewById(R.id.imageView0);
+        pos_11 = (ImageView) findViewById(R.id.imageView0);
+        pos_12 = (ImageView) findViewById(R.id.imageView0);
+        pos_13 = (ImageView) findViewById(R.id.imageView0);
+        pos_14 = (ImageView) findViewById(R.id.imageView0);
+        pos_15 = (ImageView) findViewById(R.id.imageView0);
+        pos_16 = (ImageView) findViewById(R.id.imageView0);
     }
     public void setCardImage(Card card, int pos) { //Basically put card in imageview pos.
 
