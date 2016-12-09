@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.view.View;
+import android.graphics.drawable.Drawable;
 
 
 import java.util.ArrayList;
@@ -104,7 +105,7 @@ public class playGame extends AppCompatActivity {
         pos_16 = (ImageView) findViewById(R.id.imageView4);
     }
     public void setCardImage(Card card, int pos) { //Basically put card in imageview pos.
-        //img.setImageResource(R.drawable.my_image);
+
     }
 
     public void renderHand(){
