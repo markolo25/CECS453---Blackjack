@@ -37,99 +37,99 @@
         app:srcCompat="@android:color/background_light"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/imageView4"/>
+        android:id="@+id/imageView0"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:color/background_light"
-        android:layout_below="@+id/imageView4"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/imageView5"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:color/background_light"
-        android:layout_below="@+id/imageView5"
-        android:layout_alignEnd="@+id/button3"
-        android:id="@+id/imageView6"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:color/background_light"
-        android:layout_below="@+id/imageView6"
+        android:layout_below="@+id/imageView2"
         android:layout_toStartOf="@+id/button3"
-        android:id="@+id/imageView7"/>
+        android:id="@+id/imageView1"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:color/background_light"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignEnd="@+id/button3"
+        android:id="@+id/imageView2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:color/background_light"
+        android:layout_below="@+id/imageView0"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/imageView3"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:color/background_light"
         android:layout_above="@+id/button3"
-        android:layout_toEndOf="@+id/imageView4"
+        android:layout_toEndOf="@+id/imageView0"
         android:layout_marginBottom="67dp"
+        android:id="@+id/imageView4"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:color/background_light"
+        android:layout_alignTop="@+id/imageView4"
+        android:layout_alignStart="@+id/hit_button"
+        android:layout_marginStart="12dp"
+        android:id="@+id/imageView5"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:color/background_light"
+        android:layout_alignTop="@+id/imageView5"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView6"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:color/background_light"
+        android:layout_alignTop="@+id/imageView6"
+        android:layout_toEndOf="@+id/button3"
+        android:id="@+id/imageView7"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:color/background_light"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageView4"
         android:id="@+id/imageView8"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:color/background_light"
-        android:layout_alignTop="@+id/imageView8"
-        android:layout_alignStart="@+id/hit_button"
-        android:layout_marginStart="12dp"
-        android:id="@+id/imageView11"/>
+        android:layout_alignParentBottom="true"
+        android:id="@+id/imageView9"
+        android:layout_alignStart="@+id/imageView1"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:color/background_light"
         android:layout_alignTop="@+id/imageView11"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/imageView12"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:color/background_light"
-        android:layout_alignTop="@+id/imageView12"
-        android:layout_toEndOf="@+id/button3"
-        android:id="@+id/imageView13"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:color/background_light"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/imageView8"
-        android:id="@+id/imageView14"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:color/background_light"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/imageView16"
-        android:layout_alignStart="@+id/imageView7"/>
+        android:layout_toStartOf="@+id/imageView2"
+        android:layout_marginEnd="18dp"
+        android:id="@+id/imageView10"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:color/background_light"
         android:layout_marginEnd="14dp"
-        android:id="@+id/imageView17"
-        android:layout_above="@+id/imageView16"
-        android:layout_toStartOf="@+id/imageView5"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:color/background_light"
-        android:layout_alignTop="@+id/imageView17"
-        android:layout_toStartOf="@+id/imageView6"
-        android:layout_marginEnd="18dp"
-        android:id="@+id/imageView18"/>
+        android:id="@+id/imageView11"
+        android:layout_above="@+id/imageView9"
+        android:layout_toStartOf="@+id/imageView3"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -138,29 +138,29 @@
         android:layout_below="@+id/hit_button"
         android:layout_alignParentStart="true"
         android:layout_marginTop="61dp"
-        android:id="@+id/imageView19"/>
+        android:id="@+id/imageView12"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:color/background_light"
-        android:layout_alignTop="@+id/imageView19"
-        android:layout_toStartOf="@+id/imageView16"
-        android:id="@+id/imageView20"/>
+        android:layout_alignTop="@+id/imageView12"
+        android:layout_toStartOf="@+id/imageView9"
+        android:id="@+id/imageView13"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:color/background_light"
-        android:layout_below="@+id/imageView20"
-        android:layout_alignEnd="@+id/imageView13"
-        android:id="@+id/imageView21"/>
+        android:layout_below="@+id/imageView13"
+        android:layout_alignEnd="@+id/imageView7"
+        android:id="@+id/imageView14"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:color/background_light"
-        android:layout_below="@+id/imageView21"
+        android:layout_below="@+id/imageView14"
         android:layout_alignParentEnd="true"
-        android:id="@+id/imageView23"/>
+        android:id="@+id/imageView15"/>
 </RelativeLayout>
