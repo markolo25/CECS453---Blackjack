@@ -1,4 +1,5 @@
 package com.example.mark.cecs453_blackjack;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,15 +29,16 @@ public class playGame extends AppCompatActivity {
     ImageView pos_14;
     ImageView pos_15;
     ImageView pos_16;
-HashMap<Integer, ImageView> positions = new HashMap();
+    HashMap<Integer, ImageView> positions = new HashMap();
     ArrayList<Card> playingDeck = new ArrayList<Card>();
     ArrayList<Card> opponentsHand = new ArrayList<Card>();
     ArrayList<Card> playerHand = new ArrayList<Card>();
     int playerValue;
     int opponentValue;
-    int numberOfCards = 51;
+    int numberOfCards;
     Button hit;
     Button stay;
+    int numberOfRounds;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,9 @@ HashMap<Integer, ImageView> positions = new HashMap();
         opponentValue = 0;
         hit = (Button) findViewById(R.id.hit_button);
         stay = (Button) findViewById(R.id.hit_button);
+        Intent myIntent = getIntent();
+        Bundle myBundle = myIntent.getExtras();
+        numberOfRounds = myBundle.getInt("Number of Rounds");
         makeDeck();
         makeViews();
         deal();
@@ -190,25 +195,30 @@ HashMap<Integer, ImageView> positions = new HashMap();
         playingDeck.add(new Card("king", 10, "clubs", "king_of_clubs.png"));
         playingDeck.add(new Card("king", 10, "diamonds", "king_of_diamonds.png"));
         playingDeck.add(new Card("king", 10, "hearts", "ace_of_hearts.png"));
+        numberOfCards = playingDeck.size();
     }
 
     public void deal() {
+
         Random randomNumber = new Random();
         int randomCard;
-        for (int i = 1; i < 2; i++) {
+        for (int i = 0; i < 2; i++) {
             randomCard = randomNumber.nextInt(numberOfCards);
             playerHand.add(playingDeck.get(randomCard));
             playingDeck.remove(playingDeck.get(randomCard));
             numberOfCards--;
             playerValue += playerHand.get(i).getValue();
+            setCardImage(playerHand.get(i),i);
         }
-        for (int i = 1; i < 2; i++) {
+        for (int i = 0; i < 2; i++) {
             randomCard = randomNumber.nextInt(numberOfCards);
             opponentsHand.add(playingDeck.get(randomCard));
             playingDeck.remove(playingDeck.get(randomCard));
             numberOfCards--;
             playerValue += opponentsHand.get(i).getValue();
         }
+        setCardImage(opponentsHand.get(0),8);
+
     }
     public void reshuffle(){
         playingDeck.clear();
@@ -217,12 +227,15 @@ HashMap<Integer, ImageView> positions = new HashMap();
     public void opponentsTurn(){
         Random randomNumber = new Random();
         int randomCard;
+        for(int i = 0; i < playerHand.size();i++){
+            setCardImage(playerHand.get(i),i);
+        }
         randomCard = randomNumber.nextInt(numberOfCards);
         boolean breakLoop = false;
         for(int i = 0; i< opponentsHand.size(); i++){
             if(opponentValue < 15){
-                playerHand.add(playingDeck.get(randomCard));
-                playerValue += playingDeck.get(randomCard).getValue();
+                opponentsHand.add(playingDeck.get(randomCard));
+                opponentValue += playingDeck.get(randomCard).getValue();
                 playingDeck.remove(playingDeck.get(randomCard));
                 numberOfCards--;
             }
@@ -243,6 +256,10 @@ HashMap<Integer, ImageView> positions = new HashMap();
         compareHands();
     }
     public void compareHands(){
+        for(int i = 0; i < opponentsHand.size();i++){
+            setCardImage(opponentsHand.get(i),i+8);
+        }
+
         if(playerValue > opponentValue){
             //win
             hit.setVisibility(Button.VISIBLE);
