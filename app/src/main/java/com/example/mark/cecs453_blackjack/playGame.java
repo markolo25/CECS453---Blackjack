@@ -1,13 +1,14 @@
 package com.example.mark.cecs453_blackjack;
-
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.view.View;
-
-
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class playGame extends AppCompatActivity {
@@ -27,22 +28,23 @@ public class playGame extends AppCompatActivity {
     ImageView pos_14;
     ImageView pos_15;
     ImageView pos_16;
-
+HashMap<Integer, ImageView> positions = new HashMap();
     ArrayList<Card> playingDeck = new ArrayList<Card>();
     ArrayList<Card> opponentsHand = new ArrayList<Card>();
     ArrayList<Card> playerHand = new ArrayList<Card>();
     int playerValue;
     int opponentValue;
     int numberOfCards = 51;
-
+    Button hit;
+    Button stay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_game);
         playerValue = 0;
         opponentValue = 0;
-        final Button hit = (Button) findViewById(R.id.hit_button);
-        final Button stay = (Button) findViewById(R.id.hit_button);
+        hit = (Button) findViewById(R.id.hit_button);
+        stay = (Button) findViewById(R.id.hit_button);
         makeDeck();
         makeViews();
         deal();
@@ -84,33 +86,49 @@ public class playGame extends AppCompatActivity {
             }
         });
     }
-
     private void makeViews() {
         pos_1  = (ImageView) findViewById(R.id.imageView0);
-        pos_2  = (ImageView) findViewById(R.id.imageView0);
-        pos_3  = (ImageView) findViewById(R.id.imageView0);
-        pos_4  = (ImageView) findViewById(R.id.imageView0);
-        pos_5  = (ImageView) findViewById(R.id.imageView0);
-        pos_6  = (ImageView) findViewById(R.id.imageView0);
-        pos_7  = (ImageView) findViewById(R.id.imageView0);
-        pos_8  = (ImageView) findViewById(R.id.imageView0);
-        pos_9  = (ImageView) findViewById(R.id.imageView0);
-        pos_10 = (ImageView) findViewById(R.id.imageView0);
-        pos_11 = (ImageView) findViewById(R.id.imageView0);
-        pos_12 = (ImageView) findViewById(R.id.imageView0);
-        pos_13 = (ImageView) findViewById(R.id.imageView0);
-        pos_14 = (ImageView) findViewById(R.id.imageView0);
-        pos_15 = (ImageView) findViewById(R.id.imageView0);
-        pos_16 = (ImageView) findViewById(R.id.imageView0);
+        pos_2  = (ImageView) findViewById(R.id.imageView1);
+        pos_3  = (ImageView) findViewById(R.id.imageView2);
+        pos_4  = (ImageView) findViewById(R.id.imageView3);
+        pos_5  = (ImageView) findViewById(R.id.imageView4);
+        pos_6  = (ImageView) findViewById(R.id.imageView5);
+        pos_7  = (ImageView) findViewById(R.id.imageView6);
+        pos_8  = (ImageView) findViewById(R.id.imageView7);
+        //positions from this pt are opponents hand
+        pos_9  = (ImageView) findViewById(R.id.imageView8);
+        pos_10 = (ImageView) findViewById(R.id.imageView9);
+        pos_11 = (ImageView) findViewById(R.id.imageView10);
+        pos_12 = (ImageView) findViewById(R.id.imageView11);
+        pos_13 = (ImageView) findViewById(R.id.imageView12);
+        pos_14 = (ImageView) findViewById(R.id.imageView13);
+        pos_15 = (ImageView) findViewById(R.id.imageView14);
+        pos_16 = (ImageView) findViewById(R.id.imageView15);
+        positions.put(0,pos_1);
+        positions.put(1,pos_2);
+        positions.put(2,pos_3);
+        positions.put(3,pos_4);
+        positions.put(4,pos_5);
+        positions.put(5,pos_6);
+        positions.put(6,pos_7);
+        positions.put(7,pos_8);
+        positions.put(8,pos_9);
+        positions.put(9,pos_10);
+        positions.put(10,pos_11);
+        positions.put(11,pos_12);
+        positions.put(12,pos_13);
+        positions.put(13,pos_14);
+        positions.put(14,pos_15);
+        positions.put(15,pos_16);
+
     }
     public void setCardImage(Card card, int pos) { //Basically put card in imageview pos.
-
+        try {
+            InputStream inputStream = getAssets().open(card.getImage());
+            Drawable drawable = Drawable.createFromStream(inputStream, null);
+            positions.get(pos).setImageDrawable(drawable);
+        } catch (IOException e) { e.printStackTrace();}
     }
-
-    public void renderHand(){
-
-    }
-
     public void makeDeck() {
          //new Card ("ace", 11, "spades", R.drawable.ace_of_spades); kelvin this is the new format now
         playingDeck.add(new Card("ace", 11, "spades", "ace_of_spades.png"));
@@ -227,9 +245,14 @@ public class playGame extends AppCompatActivity {
     public void compareHands(){
         if(playerValue > opponentValue){
             //win
+            hit.setVisibility(Button.VISIBLE);
+            stay.setVisibility(Button.VISIBLE);
         }
         else if( playerValue < opponentValue){
             //loss
+            hit.setVisibility(Button.VISIBLE);
+            stay.setVisibility(Button.VISIBLE);
         }
     }
 }
+
