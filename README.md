@@ -1,5 +1,5 @@
-# CECS 343 Final Project
-#### By Mark Mendoza and Kelvin Nguyen
+# CECS 453 Final Project
+#### By Mark Mendoza and Kelvin Pham
 
 
 # Project Schedule
@@ -15,3 +15,7 @@ Credits(Will add as we get more):
 
 Card Faces: http://opengameart.org/content/playing-cards-vector-png
 
+
+GameLayout- Mark
+Game Logic - Kelvin
+Main Menu - Mark & Kelvin
